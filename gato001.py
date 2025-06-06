@@ -1,11 +1,10 @@
+# esta versión es la base para trabajar en la evaluación III
 def crear_tablero():
     tablero = []  
     fila = 0   
-    
     while fila < 3: 
         tablero.append([" ", " ", " "]) 
         fila += 1  
-        
     return tablero 
 
 
