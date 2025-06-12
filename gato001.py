@@ -1,13 +1,5 @@
 # esta versión es la base para trabajar en la evaluación III
-def crear_tablero():
-    tablero = []  
-    fila = 0   
-    while fila < 3: 
-        tablero.append([" ", " ", " "]) 
-        fila += 1  
-    return tablero 
-
-
+#borramos la def repetida
 def crear_tablero():
     tablero = [[" ", " ", " "],[" ", " ", " "],[" ", " ", " "]]  
     return tablero 
@@ -19,14 +11,7 @@ def imprimir_tablero(tablero):
         if fila < 2:  
             print("-" * 5)
         fila += 1  
-
-def imprimir_tablero(tablero):
-        print(f"{tablero[0][0]}|{tablero[0][1]}|{tablero[0][2]}")
-        print("-----")
-        print(f"{tablero[1][0]}|{tablero[1][1]}|{tablero[1][2]}")
-        print("-----")
-        print(f"{tablero[2][0]}|{tablero[2][1]}|{tablero[2][2]}")
-
+#Borramos la def repetida
 
 
 def movimiento_jugador(tablero, jugador):
