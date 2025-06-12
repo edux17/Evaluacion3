@@ -1,5 +1,5 @@
 # esta versión es la base para trabajar en la evaluación III
-#borramos la def repetida
+#borre la def repetida crear tablero
 def crear_tablero():
     tablero = [[" ", " ", " "],[" ", " ", " "],[" ", " ", " "]]  
     return tablero 
@@ -11,7 +11,7 @@ def imprimir_tablero(tablero):
         if fila < 2:  
             print("-" * 5)
         fila += 1  
-#Borramos la def repetida
+#Borre la def repetida imprimir_tablero
 
 
 def movimiento_jugador(tablero, jugador):
@@ -48,10 +48,7 @@ def tablero_lleno(tablero):
             return False
     return True
 
-# Agregar en juego_completo():
-if tablero_lleno(tablero):
-    print("¡Empate!")
-    break
+#cambio el empate que estaba aqui para moverlo en juego completo
 
 
 import random
@@ -62,11 +59,7 @@ def movimiento_ia(tablero):
         fila, columna = random.choice(casillas_vacias)
         tablero[fila][columna] = "O"
 
-# Modificar el turno en juego_completo():
-if jugador_actual == "X":
-    movimiento_jugador(tablero)
-else:
-    movimiento_ia(tablero)
+#Modificado en el juego completo
 
 def juego_completo():
     tablero = crear_tablero()
@@ -75,10 +68,18 @@ def juego_completo():
     while True:
         imprimir_tablero(tablero)
         print(f"Turno de {jugador_actual}")
-        movimiento_jugador(tablero, jugador_actual)
+        if jugador_actual == "X":
+            movimiento_jugador(tablero)
+        else:
+            print("Turno de la IA (O)...")
+            movimiento_ia(tablero)
 
         if hay_ganador(tablero):
             print(f"¡{jugador_actual} ha ganado!")
+            break
+
+        if tablero_lleno(tablero):
+            print("¡Empate!")
             break
  
         if(jugador_actual=="O"):
