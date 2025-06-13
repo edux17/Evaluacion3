@@ -58,6 +58,26 @@ def tablero_lleno(tablero):
 import random
 
 def movimiento_ia(tablero):
+    #Que la ia intente ganar 
+    for i in range(3):
+        for j in range(3):
+            if tablero[i][j] == " ":
+                tablero[i][j] = "O"
+                if hay_ganador(tablero) == "O":
+                    return
+                tablero[i][j] = " " 
+
+    #que lo intente bloquear, sino puede ganar
+    for i in range(3):
+        for j in range(3):
+            if tablero[i][j] == " ":
+                tablero[i][j] = "X"
+                if hay_ganador(tablero) == "X":
+                    tablero[i][j] = "O" 
+                    return
+                tablero[i][j] = " "
+
+    #y sino puede ganar ni bloquear, que elija una casilla vacia al azar
     casillas_vacias = [(i, j) for i in range(3) for j in range(3) if tablero[i][j] == " "]
     if casillas_vacias:
         fila, columna = random.choice(casillas_vacias)
